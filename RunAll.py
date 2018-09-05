@@ -1,7 +1,6 @@
 import os
 import unittest
-from TestTools import send_email
-from TestTools import HTMLTestRunner
+from TestTools import send_email, HTMLTestRunner
 
 cur_path = os.path.dirname(os.path.realpath(__file__))
 

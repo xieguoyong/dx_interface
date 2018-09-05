@@ -2,6 +2,7 @@ import unittest
 import traceback
 from TestCase.common import handle, data_read
 from parameterized import parameterized
+from TestTools.log import MyLog
 
 
 class TestMain(unittest.TestCase):
@@ -13,6 +14,8 @@ class TestMain(unittest.TestCase):
         cls._handle = handle.Handle()
         setup_data = data_read.get_xls('dict', u"dx_interauto_pre_case.xls", "setup")
         cls._handle.set_global(setup_data)
+        cls.log = MyLog.get_log()
+        cls.logger = cls.log.get_logger()
 
     # 读取用例文件中的用例（type,Excel文件名,sheet名）
     case = data_read.get_xls('list', u"dx_interauto_pre_case.xls", "main")
@@ -25,6 +28,8 @@ class TestMain(unittest.TestCase):
     @parameterized.expand(case, testcase_func_name=custom_name_func)
     def test_main(self, case_id, setup, header, case_name, url, method, path, param, teardown, test_assert):
         try:
+            func_name = 'test_' + case_id + '_' + case_name
+            self.log.build_start_line(func_name)
             # print的内容会输出到报告中
             print("case_%s" % case_id)
             print("yaml_data: %s" % data_read.get_yaml())
@@ -55,9 +60,12 @@ class TestMain(unittest.TestCase):
             if teardown != "":
                 self._handle.handle_teardown(teardown, res_content)
 
+            self.log.build_case_line(case_name, str(res_code), str(res_content))
+            self.log.build_end_line(func_name)
+
         except Exception as e:
             print('traceback.print_exc(): %s,%s' % (traceback.print_exc(), e))
-            self.assertTrue(0)
+            # self.assertTrue(0)
 
     # 测试结束清理
     @classmethod
