@@ -1,7 +1,6 @@
 import unittest
 import traceback
-from TestTools import data_read
-from TestCase.common import handle
+from TestCase.common import handle, data_read
 from parameterized import parameterized
 
 
@@ -28,9 +27,10 @@ class TestMain(unittest.TestCase):
         try:
             # print的内容会输出到报告中
             print("case_%s" % case_id)
-            print("yaml_data:%s" % data_read.get_yaml())
+            print("yaml_data: %s" % data_read.get_yaml())
             self.path = self._handle.handle_url(path)
             self.url = "%s%s" % (url, self.path)
+            print("url: %s" % self.url)
             # 判断param中是否有参数化
             if "{" in param:
                 self.param = self._handle.handle_param(param)
@@ -42,13 +42,13 @@ class TestMain(unittest.TestCase):
                 self.header = self._handle.handle_header(header)
             else:
                 self.header = header
-            print("url:%s" % self.url)
-            print("--------------------------------------------")
+            print("---------------------------------------------------------------")
 
-            res_code, res_content, res_headers = self._handle.handle_request(method, self.url, self.param, self.header)  # 提交接口数据
-            print("res_code:%s & type:%s" % (res_code, type(res_code)))
-            print("res_content:%s" % res_content)
-            print("res.headers:%s" % res_headers)
+            # 提交接口数据，调用接口，获取返回数据
+            res_code, res_content, res_headers = self._handle.handle_request(method, self.url, self.param, self.header)
+            print("res_code: %s & type: %s" % (res_code, type(res_code)))
+            print("res_content: %s" % res_content)
+            print("res.headers: %s" % res_headers)
 
             assert res_code >=200 and res_code <300
 
@@ -56,7 +56,7 @@ class TestMain(unittest.TestCase):
                 self._handle.handle_teardown(teardown, res_content)
 
         except Exception as e:
-            print('traceback.print_exc():%s,%s' % (traceback.print_exc(), e))
+            print('traceback.print_exc(): %s,%s' % (traceback.print_exc(), e))
             self.assertTrue(0)
 
     # 测试结束清理

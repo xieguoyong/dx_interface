@@ -2,7 +2,7 @@ import requests
 import re
 import json
 import demjson
-from TestTools import data_read
+from TestCase.common import data_read
 
 
 class Handle:
@@ -19,10 +19,12 @@ class Handle:
     def handle_setup(self):
         pass
 
-    # 处理后置teardown，获取获取请求值，保存参数到全局变量中
-    def handle_teardown(self, teardown, response):
+    # 处理后置teardown，从接口返回中获取参数值，并保存参数到全局变量中
+    def handle_teardown(self, teardown, res_content):
+        # json.loads将str类型转化为dict类型
         self.teardown = json.loads(teardown)
-        self.response = json.loads(response)
+        print("teardown值： %s && type: %s" % (self.teardown, type(self.teardown)))
+        self.response = json.loads(res_content)
         teardown_dict = {}
         # 判断返回值类型是list还是dict
         if isinstance(self.response, list):
@@ -35,7 +37,10 @@ class Handle:
             for i in self.teardown.keys():
                 value = self.response[i]
                 if isinstance(self.teardown[i], dict):
+                    # 这里考虑teardown[i]的值仍是字典的情况，类似{"Entities":{"0":{"Id":"PatientId"}}}
                     for a in self.teardown[i].keys():
+                        # 这里考虑value是个列表的情况，类似如下
+                        # {"Entities": [{"Id": "11", "LoginAccount": "22"}, {"Id": "33", "LoginAccount": "44"}]}
                         if isinstance(value, list):
                             value2 = value[int(a)]
                             aa = self.teardown[i][a]
@@ -52,20 +57,17 @@ class Handle:
         self.set_global(teardown_dict)
 
     # 提交接口请求
-    def handle_request(self, method, url, data, header=None):
+    def handle_request(self, method, url, param, header=None):
+        res = ""
         if method == "post":
             if header == "":
-                res = requests.post(url, data=data, verify=False)
+                res = requests.post(url, data=param)
             else:
-                res = requests.post(url, json=data, headers=header, verify=False)
+                res = requests.post(url, json=param, headers=header)
         elif method == "get":
-            print("url:%s" % url)
-            res = requests.get(url, headers=header, verify=False)
+            res = requests.get(url, headers=header)
         elif method == "put":
-            print("url:%s" % url)
-            print("data:%s" % data)
-            print("headers:%s" % header)
-            res = requests.put(url, json=data, headers=header, verify=False)
+            res = requests.put(url, json=param, headers=header)
 
         return res.status_code, res.content, res.headers
 
@@ -75,11 +77,11 @@ class Handle:
             param = re.findall('{(.*?)}', data)  # 正则匹配出参数，结果为list类型
 
             for i in param:
+                # 将data中各个参数替换成yaml中对应的值
                 d = data_read.get_yaml()
                 b = data.replace("{"+i+"}", '"'+d[i]+'"')
                 data = b
-        print("handle_param-data: %s && type(data):%s" % (data, type(data)))
-        # return json.loads(data)
+        print("handle_param_data: %s && type(data):%s" % (data, type(data)))
         return demjson.decode(data)
 
     # 处理url中参数
