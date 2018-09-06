@@ -42,34 +42,15 @@ class Log:
         self.logger.addHandler(console)
 
     def get_logger(self):
-        """
-        get logger
-        :return:
-        """
         return self.logger
 
-    def build_start_line(self, case_no):
-        """
-        write start line
-        :return:
-        """
-        self.logger.info("--------" + case_no + " START--------")
+    def build_start_line(self, case_name):
+        self.logger.info("--------" + case_name + " START--------")
 
-    def build_end_line(self, case_no):
-        """
-        write end line
-        :return:
-        """
-        self.logger.info("--------" + case_no + " END--------")
+    def build_end_line(self, case_name):
+        self.logger.info("--------" + case_name + " END--------")
 
     def build_case_line(self, case_name, code, msg):
-        """
-        write test case line
-        :param case_name:
-        :param code:
-        :param msg:
-        :return:
-        """
         self.logger.info(case_name + " - Code: " + code + " - Msg: " + msg)
 
     def get_report_path(self):

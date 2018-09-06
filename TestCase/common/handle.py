@@ -23,7 +23,7 @@ class Handle:
     def handle_teardown(self, teardown, res_content):
         # json.loads将str类型转化为dict类型
         self.teardown = json.loads(teardown)
-        print("teardown值： %s && type: %s" % (self.teardown, type(self.teardown)))
+        # print("teardown值： %s && type: %s" % (self.teardown, type(self.teardown)))
         self.response = json.loads(res_content)
         teardown_dict = {}
         # 判断返回值类型是list还是dict
@@ -81,7 +81,7 @@ class Handle:
                 d = data_read.get_yaml()
                 b = data.replace("{"+i+"}", '"'+d[i]+'"')
                 data = b
-        print("handle_param_data: %s && type(data):%s" % (data, type(data)))
+        # print("handle_param_data: %s && type(data):%s" % (data, type(data)))
         return demjson.decode(data)
 
     # 处理url中参数
