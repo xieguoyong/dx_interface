@@ -362,8 +362,8 @@ function hide_img(obj){
 </div>
 <div class='heading'>
 <h1>接口自动化测试报告</h1>
-<p class='attribute'><strong>开始时间:</strong> 2019-05-08 16:15:33</p>
-<p class='attribute'><strong>耗时:</strong> 0:00:01.500042</p>
+<p class='attribute'><strong>开始时间:</strong> 2019-05-08 16:34:47</p>
+<p class='attribute'><strong>耗时:</strong> 0:00:01.453295</p>
 <p class='attribute'><strong>状态:</strong> <span class="tj passCase">Pass</span>4 <span class="tj failCase">Failure</span>1</p>
 
 <p class='description'>用例执行情况</p>
@@ -436,7 +436,7 @@ function hide_img(obj){
         <pre>
         
 ft1.3: Traceback (most recent call last):
-  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 75, in test_main
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 76, in test_main
     self.assertIn(self.code, self.res_content.decode())
   File "E:\Python36\lib\unittest\case.py", line 1089, in assertIn
     self.fail(self._formatMessage(msg, standardMsg))
@@ -445,7 +445,7 @@ ft1.3: Traceback (most recent call last):
 AssertionError: '"code":0' not found in '{"msg":"排期时间存在冲突","code":500,"success":false,"error":true}'
 traceback.print_exc(): None,'"code":0' not found in '{"msg":"排期时间存在冲突","code":500,"success":false,"error":true}'
 Traceback (most recent call last):
-  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 75, in test_main
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 76, in test_main
     self.assertIn(self.code, self.res_content.decode())
   File "E:\Python36\lib\unittest\case.py", line 1089, in assertIn
     self.fail(self._formatMessage(msg, standardMsg))
@@ -456,8 +456,8 @@ During handling of the above exception, another exception occurred:
 Traceback (most recent call last):
   File "E:\PycharmProjects\dx_interface\venv\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
     return func(*(a + p.args), **p.kwargs)
-  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 87, in test_main
-    self.assertTrue(0)
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 89, in test_main
+    self.assertTrue(0)     # 此处在用例抛出异常时加入断言，assertTrue(0)必定返回fasle,说明用例失败
 AssertionError: 0 is not true
 
 
