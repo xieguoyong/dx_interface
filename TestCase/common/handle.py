@@ -71,6 +71,16 @@ class Handle:
 
         return res.status_code, res.content, res.headers
 
+    # 处理result中参数
+    def handle_result(self, data):
+        if "{" in data:
+            result = re.findall('{(.*?)}', data)
+            for i in result:
+                yamldata = data_read.get_yaml()
+                h = data.replace("{" + i + "}", '"' + yamldata[i] + '"')
+                data = h
+            return demjson.decode(data)
+
     # 处理param中参数
     def handle_param(self, data):
         if "{" in data:
@@ -78,8 +88,8 @@ class Handle:
 
             for i in param:
                 # 将data中各个参数替换成yaml中对应的值
-                d = data_read.get_yaml()
-                b = data.replace("{"+i+"}", '"'+d[i]+'"')
+                yamldata = data_read.get_yaml()
+                b = data.replace("{"+i+"}", '"'+yamldata[i]+'"')
                 data = b
         # print("handle_param_data: %s && type(data):%s" % (data, type(data)))
         return demjson.decode(data)
@@ -89,8 +99,8 @@ class Handle:
         if "{" in data:
             param = re.findall('{(.*?)}', data)  # 正则匹配出参数
             for i in param:
-                d = data_read.get_yaml()
-                u = data.replace("{"+i+"}", d[i])
+                yamldata = data_read.get_yaml()
+                u = data.replace("{"+i+"}", yamldata[i])
                 data = u
         return data
 
@@ -112,7 +122,7 @@ class Handle:
     def get_header(self, key):
         yamldata = data_read.get_yaml()
         token = yamldata[key]
-        header = "{'Authorization': 'Bearer %s'}" % token
+        header = "{'token': '%s'}" % token
         return demjson.decode(header)
 
 

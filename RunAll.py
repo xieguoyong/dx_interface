@@ -27,6 +27,6 @@ if __name__ == '__main__':
     all_case = add_case()
     # 运行用例
     run_case(all_case)
-    send = send_email.sendemail()
+    # send = send_email.sendemail()
     # 发送邮件
-    send.send_mail()
+    # send.send_mail()

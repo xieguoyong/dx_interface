@@ -1,0 +1,18 @@
+DoctorServiceSettingKey: 483bfba7-5cd3-e711-8da1-000c29ac6d36
+EndDateTime: '2019-05-08 18:30:00'
+StartDateTime: '2019-05-08 18:00:00'
+StoreId: A05E1F92-CA15-4F68-90E1-197E636A9899
+admin_name: testsuperadmin2
+admin_pwd: elephantpwd123
+admin_token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJjb2RlXCI6XCJzdXBlcnhneVwiLFwiYXBwbGljYXRpb25Db2RlXCI6XCJEWERcIn0iLCJleHAiOjE1NTc3MzQ2MzJ9.GsvnnEQL1Z8rnrY44GB9-yj6wwIz0KSo8d2oh0LICfqzRxmYJpL-f1J9JlXBxhH5o3BzTstXH1tPYU-RtnZ4IA
+check_name: '15956988705'
+check_pwd: '123456'
+doctor_code: '15221737777'
+doctor_pwd: '123456'
+endDate: '2019-05-08'
+num: '1444'
+patient_code: '18796603531'
+startDate: '2019-05-08'
+user_idcard: '510821199205141214'
+user_pwd: '123456'
+usert_name: TestUser

@@ -34,7 +34,7 @@ def get_xls(type, excel_name, sheet_name):
         new_file = copy(file)
         new_sheet = new_file.get_sheet(0)
         new_sheet.write(1, 1, int(int(num) + 1))
-        new_sheet.write(3, 1, int(int(cls['user_phone']) + 1))
+        # new_sheet.write(3, 1, int(int(cls['user_phone']) + 1))
 
         new_file.save(excel_path)
         cls = handle_setup_data(cls)
@@ -44,19 +44,19 @@ def get_xls(type, excel_name, sheet_name):
 
 def handle_setup_data(cls):
     num = int(cls['num'])
-    user_phone = int(cls['user_phone'])
+    patient_code = int(cls['patient_code'])
     start_date = datetime.datetime.now().strftime('%Y-%m-%d')
-    user_name = "%s%s" % (cls['user_name'], num)
+    # user_name = "%s%s" % (cls['user_name'], num)
     start_datetime = "%s %s" % (start_date, cls['StartDateTime'])
     end_datetime = "%s %s" % (start_date, cls['EndDateTime'])
     cls['num'] = str(num)
-    cls['user_name'] = str(user_name)
+    # cls['user_name'] = str(user_name)
     # 开始日期结束日期均设置成当天
     cls[u'startDate'] = str(start_date)
     cls[u'endDate'] = str(start_date)
     cls['StartDateTime'] = str(start_datetime)
     cls['EndDateTime'] = str(end_datetime)
-    cls['user_phone'] = str(user_phone)
+    cls['patient_code'] = str(patient_code)
 
     return cls
 
@@ -65,7 +65,7 @@ def handle_setup_data(cls):
 def get_yaml():
     f = open(yamlpath, 'r')
     # 读取，结果为dict类型
-    x = yaml.load(f)
+    x = yaml.load(f, Loader=yaml.FullLoader)
     f.close()
     return x
 
