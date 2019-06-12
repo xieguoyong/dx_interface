@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb41f1e1-12d1-46a4-93f2-847026147abc" name="Default" comment="优化以下点：&#10;1、之前只有正向用例且均放在一个excel不容易扩展，现在将每个功能点的用例放在一个excel，其中包含正反向用例。实现方式：加了一个循环遍历所有excel表并读取其中的所有用例并放在case_all列表中&#10;2、之前通过res_code的值来判断成功或失败，对反向的用例判断不准确（反向用例res_code也是200，只是res_content中code为500等），目前在excel中增加code、result字段（分别为预期的返回code和msg）,通过断言code、result在接口返回res_content中判断成功或失败">
-      <change afterPath="$PROJECT_DIR$/TestData/dx_interauto_pre_case1.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestData/dx_interauto_pre_case2.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestData/dx_interauto_pre_case3.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestData/dx_interauto_prebak.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestTools/HTMLTestRunner1.py" afterDir="false" />
+    <list default="true" id="eb41f1e1-12d1-46a4-93f2-847026147abc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RunAll.py" beforeDir="false" afterPath="$PROJECT_DIR$/RunAll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCase/common/data_read.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCase/common/data_read.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCase/common/handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCase/common/handle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCase/test_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCase/test_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestData/dx_interauto_pre_case.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestData/dx_interauto_pre_case_bak.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestData/g_data.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/TestData/g_data.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestData/dx_interauto_pre_case1.xls" beforeDir="false" afterPath="$PROJECT_DIR$/TestData/dx_interauto_pre_case1.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestResult/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/TestResult/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestTools/send_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestTools/send_email.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/dx_interface$Unittests_in_test_main_py.coverage" NAME="Unittests in test_main.py Coverage Results" MODIFIED="1513592375458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestCase" />
-    <SUITE FILE_PATH="coverage/dx_interface$RunAll.coverage" NAME="RunAll Coverage Results" MODIFIED="1557304486552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dx_interface$RunAll.coverage" NAME="RunAll Coverage Results" MODIFIED="1558578830845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dx_interface$handle.coverage" NAME="handle Coverage Results" MODIFIED="1513327743022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestCase/common" />
     <SUITE FILE_PATH="coverage/dx_interface$send_email.coverage" NAME="send_email Coverage Results" MODIFIED="1534321953197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestTools" />
     <SUITE FILE_PATH="coverage/dx_interface$Unittests_for_test_main_TestMain.coverage" NAME="Unittests for test_main.TestMain Coverage Results" MODIFIED="1536137932576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestCase" />
@@ -42,8 +33,8 @@
       <file leaf-file-name="RunAll.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RunAll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="24" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="48" />
+            <state relative-caret-position="230">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="41" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -51,11 +42,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="send_email.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestTools/send_email.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="22" selection-start-column="22" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="handle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCase/common/handle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="71" column="43" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="43" />
+            <state relative-caret-position="1196">
+              <caret line="52" column="45" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="45" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -66,8 +66,8 @@
       <file leaf-file-name="data_read.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCase/common/data_read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="460">
+              <caret line="20" column="11" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="11" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -75,23 +75,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="g_data.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestData/g_data.yaml">
+      <file leaf-file-name="test_main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCase/test_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="1909">
+              <caret line="83" column="71" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestCase/test_main.py">
+      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestTools/log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2415">
-              <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1058">
+              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getinfo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestTools/getinfo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -149,15 +158,15 @@
         <option value="C:/Python27/Lib/smtplib.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/TestTools/HTMLTestRunner.py" />
-        <option value="$PROJECT_DIR$/TestTools/send_email.py" />
         <option value="$PROJECT_DIR$/TestTools/data_read.py" />
         <option value="$PROJECT_DIR$/TestTools/getinfo.py" />
         <option value="$PROJECT_DIR$/TestTools/log.py" />
         <option value="$PROJECT_DIR$/TestResult/2018-09-06/output.log" />
         <option value="$PROJECT_DIR$/TestCase/common/data_read.py" />
-        <option value="$PROJECT_DIR$/RunAll.py" />
         <option value="$PROJECT_DIR$/TestCase/common/handle.py" />
+        <option value="$PROJECT_DIR$/RunAll.py" />
         <option value="$PROJECT_DIR$/TestCase/test_main.py" />
+        <option value="$PROJECT_DIR$/TestTools/send_email.py" />
       </list>
     </option>
   </component>
@@ -173,7 +182,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
-    <option name="width" value="1388" />
+    <option name="width" value="1390" />
     <option name="height" value="790" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -182,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,18 +222,13 @@
             <path>
               <item name="dx_interface" type="b2602c69:ProjectViewProjectNode" />
               <item name="dx_interface" type="462c0819:PsiDirectoryNode" />
-              <item name="TestResult" type="462c0819:PsiDirectoryNode" />
-              <item name="2019-05-06" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dx_interface" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dx_interface" type="462c0819:PsiDirectoryNode" />
               <item name="TestTools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,7 +386,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536140927665</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="优化以下点：&#10;1、之前只有正向用例且均放在一个excel不容易扩展，现在将每个功能点的用例放在一个excel，其中包含正反向用例。实现方式：加了一个循环遍历所有excel表并读取其中的所有用例并放在case_all列表中&#10;2、之前通过res_code的值来判断成功或失败，对反向的用例判断不准确（反向用例res_code也是200，只是res_content中code为500等），目前在excel中增加code、result字段（分别为预期的返回code和msg）,通过断言code、result在接口返回res_content中判断成功或失败">
+      <created>1557304366199</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557304366199</updated>
+    </task>
+    <task id="LOCAL-00004" summary="去掉发邮件的注释">
+      <created>1557304591400</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557304591400</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -418,30 +435,40 @@
       <configuration name="Unittests for test_main.TestMain.test_main" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32872927" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872927" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2510699" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25138122" />
+      <window_info anchor="right" id="Mongo Explorer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24023438" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23994638" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39695945" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +482,8 @@
     <MESSAGE value="加了点日志" />
     <MESSAGE value="优化以下点：&#10;1、之前只有正向用例且均放在一个excel不容易扩展，现在将每个功能点的用例放在一个excel，其中包含正反向用例&#10;2、之前通过res_code的值来判断成功或失败，对" />
     <MESSAGE value="优化以下点：&#10;1、之前只有正向用例且均放在一个excel不容易扩展，现在将每个功能点的用例放在一个excel，其中包含正反向用例。实现方式：加了一个循环遍历所有excel表并读取其中的所有用例并放在case_all列表中&#10;2、之前通过res_code的值来判断成功或失败，对反向的用例判断不准确（反向用例res_code也是200，只是res_content中code为500等），目前在excel中增加code、result字段（分别为预期的返回code和msg）,通过断言code、result在接口返回res_content中判断成功或失败" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化以下点：&#10;1、之前只有正向用例且均放在一个excel不容易扩展，现在将每个功能点的用例放在一个excel，其中包含正反向用例。实现方式：加了一个循环遍历所有excel表并读取其中的所有用例并放在case_all列表中&#10;2、之前通过res_code的值来判断成功或失败，对反向的用例判断不准确（反向用例res_code也是200，只是res_content中code为500等），目前在excel中增加code、result字段（分别为预期的返回code和msg）,通过断言code、result在接口返回res_content中判断成功或失败" />
+    <MESSAGE value="去掉发邮件的注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="去掉发邮件的注释" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -517,6 +545,26 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TestCase/common/handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="39" column="86" lean-forward="true" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCase/test_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2300">
+          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file:D:/..//D:/python/dx_interface/TestTools/_read.py" />
     <entry file="file:D:/..//C:/Python27/Lib/site-packages/yaml/__init__.py" />
     <entry file="file:D:/..//C:/Users/Administrator/.PyCharm2017.3/system/python_stubs/-762174762/__builtin__.py" />
@@ -574,64 +622,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestResult/2018-09-05/output.log" />
     <entry file="file://$PROJECT_DIR$/TestResult/2018-09-06/output.log" />
-    <entry file="file://$PROJECT_DIR$/TestTools/getinfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestTools/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestResult/2019-05-06/output.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732">
-          <caret line="113" selection-start-line="113" selection-end-line="113" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestTools/send_email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestResult/result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2415" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestData/g_data.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCase/common/data_read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCase/common/handle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="71" column="43" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestTools/HTMLTestRunner.py">
@@ -641,13 +634,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/Python36/Lib/traceback.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/TestResult/2019-05-06/output.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2599">
+          <caret line="113" selection-start-line="113" selection-end-line="113" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestTools/send_email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCase/common/handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1196">
+          <caret line="52" column="45" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RunAll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="48" />
+        <state relative-caret-position="230">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCase/common/data_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="11" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -656,11 +680,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCase/test_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        <state relative-caret-position="1909">
+          <caret line="83" column="71" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="71" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestTools/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestTools/getinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>

@@ -1,6 +1,4 @@
 # -*- coding:utf-8 -*-
-__author__ = u'he.jianjun'
-# TODO(he.jianjun@dr-elephant.com):这是邮件发送的代码
 
 import smtplib
 import time
@@ -11,7 +9,6 @@ from email.mime.text import MIMEText
 
 upPath = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 att_path = os.path.join(upPath, "TestResult", "result.html")
-
 
 class sendemail:
     def send_mail(self):
@@ -26,7 +23,7 @@ class sendemail:
         msg['To'] = Header(u"测试组;运维组", 'utf-8')
         msg['Subject'] = Header(email_Sub, 'utf-8')
         # 邮件主体内容
-        mail_body = ''
+        # mail_body = ''
 
         # 邮件正文内容  "plain","html"
         msg.attach(MIMEText(htmlfile, 'html', 'utf-8'))

@@ -362,9 +362,9 @@ function hide_img(obj){
 </div>
 <div class='heading'>
 <h1>接口自动化测试报告</h1>
-<p class='attribute'><strong>开始时间:</strong> 2019-05-08 16:34:47</p>
-<p class='attribute'><strong>耗时:</strong> 0:00:01.453295</p>
-<p class='attribute'><strong>状态:</strong> <span class="tj passCase">Pass</span>4 <span class="tj failCase">Failure</span>1</p>
+<p class='attribute'><strong>开始时间:</strong> 2019-05-23 10:33:51</p>
+<p class='attribute'><strong>耗时:</strong> 0:00:02.126708</p>
+<p class='attribute'><strong>状态:</strong> <span class="tj passCase">Pass</span>3 <span class="tj failCase">Failure</span>2</p>
 
 <p class='description'>用例执行情况</p>
 </div>
@@ -400,8 +400,8 @@ function hide_img(obj){
 <tr class='failClass'>
     <td>test_main.TestMain: 主流程测试</td>
     <td>5</td>
-    <td>4</td>
-    <td>1</td>
+    <td>3</td>
+    <td>2</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',5)">详情</a></td>
     <td>&nbsp;</td>
@@ -475,17 +475,61 @@ AssertionError: 0 is not true
     <td>无截图</td>
 </tr>
 
-<tr id='pt1.5' class='hiddenRow'>
-    <td><div class='testcase'>test_005_医生排期早于当前时间</div></td>
-    <td colspan='5' align='center'><span class='status passCase'>通过</span></td>
+<tr id='ft1.5' class='none'>
+    <td ><div class='testcase'>test_005_医生排期早于当前时间</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <span class='status failCase'>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        失败</a></span>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: Traceback (most recent call last):
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 77, in test_main
+    self.assertIn(self.result, self.res_content.decode())
+  File "E:\Python36\lib\unittest\case.py", line 1089, in assertIn
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "E:\Python36\lib\unittest\case.py", line 670, in fail
+    raise self.failureException(msg)
+AssertionError: '排期开始时间必须大于当前时间' not found in '{"msg":"排期时间存在冲突","code":500,"success":false,"error":true}'
+traceback.print_exc(): None,'排期开始时间必须大于当前时间' not found in '{"msg":"排期时间存在冲突","code":500,"success":false,"error":true}'
+Traceback (most recent call last):
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 77, in test_main
+    self.assertIn(self.result, self.res_content.decode())
+  File "E:\Python36\lib\unittest\case.py", line 1089, in assertIn
+    self.fail(self._formatMessage(msg, standardMsg))
+AssertionError: '排期开始时间必须大于当前时间' not found in '{"msg":"排期时间存在冲突","code":500,"success":false,"error":true}'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PycharmProjects\dx_interface\venv\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "E:\PycharmProjects\dx_interface\TestCase\test_main.py", line 89, in test_main
+    self.assertTrue(0)     # 此处在用例抛出异常时加入断言，assertTrue(0)必定返回fasle,说明用例失败
+AssertionError: 0 is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
     <td>无截图</td>
 </tr>
 
 <tr id='total_row'>
     <th>统计</th>
     <th>5</th>
-    <th>4</th>
-    <th>1</th>
+    <th>3</th>
+    <th>2</th>
     <th>0</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
@@ -493,7 +537,7 @@ AssertionError: 0 is not true
 </table>
 <script>
     showCase(1);
-    drawCircle(4, 1, 0);
+    drawCircle(3, 2, 0);
 </script>
 
 <div id='ending'>&nbsp;</div>

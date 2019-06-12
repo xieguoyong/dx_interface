@@ -18,7 +18,7 @@ class TestMain(unittest.TestCase):
         cls.log = MyLog.get_log()
         cls.logger = cls.log.get_logger()
 
-    # 读取所有用例文件中的用例（type,Excel文件名,sheet名）
+    # 读取所有用例文件中的用例（参数分别为：type,Excel文件名,sheet名）
     upPath = "E:\PycharmProjects\dx_interface\TestData"
     case_all = []
     for dx_xls in os.listdir(upPath):
